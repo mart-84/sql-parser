@@ -23,3 +23,5 @@ jobs:
       with:
         name: build-artifact
         path: target/**/*.jar
+    - name: Run the Maven verify phase
+      run: mvn --batch-mode --update-snapshots verify
