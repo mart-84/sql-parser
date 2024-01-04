@@ -5,25 +5,15 @@
 	<Appenders>
 		<Console name="stdout" target="SYSTEM_OUT">
 			<PatternLayout>
-				<!-- <Pattern>[%d] %-5p %c{1.} [%t] - %m (%F:%L)%n</Pattern> -->
 				<Pattern>%m %n</Pattern>
 			</PatternLayout>
 		</Console>
-		<!-- <File name="fileLog" fileName="logs/app.log">
-			<PatternLayout>
-				<Pattern>[%d] %-5p %c{1.} [%t] - %m%n</Pattern>
-			</PatternLayout>
-		</File>
-		<Async name="Async">
-			<AppenderRef ref="fileLog" />
-		</Async> -->
 	</Appenders>
 
 	<Loggers>
 		<Logger name="fr.martinbonnefoy.sql.parser" level="info" />
 		<Root level="error">
 			<AppenderRef ref="stdout" />
-			<!-- <AppenderRef ref="fileLog" /> -->
 		</Root>
 	</Loggers>
 
