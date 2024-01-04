@@ -16,6 +16,35 @@ public enum TokenType {
 	COMPARISON_OP,
 
 	// Others
-	IDENTIFIER, NUMERIC_LIT, STRING_LIT;
+	IDENTIFIER, NUMERIC_LIT, STRING_LIT(true);
+
+	/**
+	 * Indicates if the token is case sensitive or not
+	 */
+	private boolean caseSensitive = false;
+
+	/**
+	 * Creates a {@code TokenType} that is not case sensitive
+	 */
+	TokenType() {
+		this.caseSensitive = false;
+	}
+
+	/**
+	 * Creates a {@code TokenType} with the given case sensitivity
+	 * @param caseSensitive Indicates if the token is case sensitive or not
+	 */
+	TokenType(boolean caseSensitive) {
+		this.caseSensitive = caseSensitive;
+	}
+
+	/**
+	 * Returns whether the {@code TokenType} is case sensitive.
+	 *
+	 * @return true if the {@code TokenType} is case sensitive, false otherwise
+	 */
+	public boolean isCaseSensitive() {
+		return this.caseSensitive;
+	}
 
 }

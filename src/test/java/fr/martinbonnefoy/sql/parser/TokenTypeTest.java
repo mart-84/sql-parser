@@ -49,4 +49,18 @@ class TokenTypeTest {
 		assertEquals("STRING_LIT", TokenType.STRING_LIT.toString());
 	}
 
+	@Test
+	void testCaseSensitiveDefaultValue() {
+		TokenType type = TokenType.SELECT;
+
+		assertEquals(false, type.isCaseSensitive());
+	}
+
+	@Test
+	void testCaseSensitiveParametrizedValue() {
+		TokenType type = TokenType.STRING_LIT;
+
+		assertEquals(true, type.isCaseSensitive());
+	}
+
 }
