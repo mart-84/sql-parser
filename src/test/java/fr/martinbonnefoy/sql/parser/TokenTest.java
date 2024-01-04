@@ -113,6 +113,22 @@ class TokenTest {
 	}
 
 	@Test
+	void testEqualsWithDifferentLetterCaseShouldBeEquals() {
+		Token token1 = new Token(TokenType.SELECT, "SELECT");
+		Token token2 = new Token(TokenType.SELECT, "select");
+
+		assertEquals(token1, token2);
+	}
+
+	@Test
+	void testEqualsWithDifferentLetterCaseShouldBeDifferents() {
+		Token token1 = new Token(TokenType.STRING_LIT, "'literal'");
+		Token token2 = new Token(TokenType.STRING_LIT, "'LITERAL'");
+
+		assertNotEquals(token1, token2);
+	}
+
+	@Test
 	void testEqualsForNonTokenObject() {
 		Token token = new Token(TokenType.SELECT);
 

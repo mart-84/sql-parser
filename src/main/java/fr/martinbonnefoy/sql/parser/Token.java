@@ -81,6 +81,11 @@ public class Token {
 		return Objects.hash(this.type, this.value);
 	}
 
+	/**
+	 * The letter case of the value matters only if the type is case sensitive
+	 *
+	 * @see TokenType#isCaseSensitive()
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -90,7 +95,15 @@ public class Token {
 			return false;
 		}
 		Token other = (Token) obj;
-		return this.type == other.type && Objects.equals(this.value, other.value);
+		if (this.type != other.type) {
+			return false;
+		}
+		if (this.type.isCaseSensitive()) {
+			return Objects.equals(this.value, other.value);
+		} else {
+			return this.value.equalsIgnoreCase(other.value);
+		}
+
 	}
 
 	@Override
