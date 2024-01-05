@@ -65,7 +65,6 @@ public class Lexer {
 	}
 
 	public void tokenize() throws InvalidTokenException {
-		// TODO refactor
 		while (this.query.length() > 0) {
 			Token token = null;
 			boolean matched = false;
@@ -75,19 +74,7 @@ public class Lexer {
 				matched = matcher.find();
 
 				if (matched) {
-					TokenType tokenType = entry.getValue();
-					String value = matcher.group();
-
-					if (tokenType != null && tokenType.equals(TokenType.STRING_LIT)) {
-						// remove starting and ending quotes
-						value = value.substring(1, value.length() - 1);
-					}
-
-					// Whitespace don't create tokens
-					if (tokenType != null) {
-						token = TokenFactory.createToken(tokenType, value);
-					}
-
+					token = this.createTokenFromMatch(matcher, entry.getValue());
 					this.query = matcher.replaceFirst("");
 					break;
 				}
@@ -103,6 +90,21 @@ public class Lexer {
 			}
 		}
 
+	}
+
+	private Token createTokenFromMatch(Matcher matcher, TokenType tokenType) {
+		String value = matcher.group();
+
+		if (tokenType != null && tokenType.equals(TokenType.STRING_LIT)) {
+			// remove starting and ending quotes
+			value = value.substring(1, value.length() - 1);
+		}
+
+		// Whitespace don't create tokens
+		if (tokenType != null) {
+			return TokenFactory.createToken(tokenType, value);
+		}
+		return null;
 	}
 
 	/**
