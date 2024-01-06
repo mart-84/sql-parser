@@ -31,13 +31,6 @@ public class ExpressionNode extends Node {
 	}
 
 	/**
-	 * @param expressionType the expressionType to set
-	 */
-	public void setExpressionType(ExpressionType expressionType) {
-		this.expressionType = expressionType;
-	}
-
-	/**
 	 * @return the columnIdentifier
 	 */
 	public ColIdentifierNode getColumnIdentifier() {
