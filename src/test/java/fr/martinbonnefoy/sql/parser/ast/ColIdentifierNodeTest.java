@@ -54,7 +54,7 @@ class ColIdentifierNodeTest {
 	}
 
 	@Test
-	void testEqualsWithEqualsObjects() {
+	void testEqualsWithEqualObject() {
 		ColIdentifierNode colIdentifierNode1 = new ColIdentifierNode();
 		colIdentifierNode1.setTableName("testTable");
 		colIdentifierNode1.setColumnName("testColumn");

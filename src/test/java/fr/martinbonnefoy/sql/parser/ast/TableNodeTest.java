@@ -41,7 +41,7 @@ class TableNodeTest {
 	}
 
 	@Test
-	void testEqualsWithEqualsObjects() {
+	void testEqualsWithEqualObject() {
 		TableNode tableNode1 = new TableNode();
 		tableNode1.setTableName("testTable");
 		tableNode1.setTableAlias("alias");

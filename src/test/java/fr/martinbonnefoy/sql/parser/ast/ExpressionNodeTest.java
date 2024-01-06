@@ -105,7 +105,7 @@ class ExpressionNodeTest {
 	}
 
 	@Test
-	void testEqualsWithEqualsObject() {
+	void testEqualsWithEqualObject() {
 		ExpressionNode expressionNode1 = new ExpressionNode(ExpressionType.COLUMN_IDENTIFIER);
 		ColIdentifierNode colIdentifierNode = new ColIdentifierNode();
 		expressionNode1.setColumnIdentifier(colIdentifierNode);
